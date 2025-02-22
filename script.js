@@ -71,3 +71,55 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+//fly in
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll("section");
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            section.classList.add("hidden");
+            observer.observe(section);
+        });
+    });
+
+    //email
+    document.addEventListener("DOMContentLoaded", function () {
+        emailjs.init("N81FOQih4FIfB5U5l"); // Initialize EmailJS with your Public Key
+    
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+    
+            // Show loading text
+            let submitButton = document.querySelector(".submit-button");
+            submitButton.textContent = "Sending...";
+    
+            emailjs.sendForm("service_oy57ceq", "template_o78pr8b", this)
+                .then(
+                    function () {
+                        document.getElementById("successMessage").style.display = "block";
+                        document.getElementById("errorMessage").style.display = "none";
+                        submitButton.textContent = "Send Message";
+                        document.getElementById("contactForm").reset(); // Clear the form
+                    },
+                    function (error) {
+                        console.log("FAILED...", error);
+                        document.getElementById("successMessage").style.display = "none";
+                        document.getElementById("errorMessage").style.display = "block";
+                        submitButton.textContent = "Send Message";
+                    }
+                );
+        });
+    });
+    
+
+

@@ -6,13 +6,14 @@
     <title>Contact Us - La Posh Hotel and Suites</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="pages.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <a href="index.html" class="logo">
+                <a href="index.html">
                     <img src="img/logo-snip.jpg" alt="Hotel Logo">
                 </a>
             </div>
@@ -21,7 +22,7 @@
                 <a href="about.html">About Us</a>
                 <a href="rooms.html">Rooms</a>
                 <a href="suites.html">Suites</a>
-                <a href="gallery.html" >Gallery</a>
+                <a href="gallery.html">Gallery</a>
                 <a href="contact.html" class="active">Contact</a>
                 <a href="booking.html" class="book-now">Book Now</a>
                 <a href="admin.html" class="login">Login</a>
@@ -48,14 +49,14 @@
             <div class="contact-grid">
                 <div class="contact-form">
                     <h2>Send us a Message</h2>
-                    <form id="contactForm" onsubmit="return handleSubmit(event)">
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="from_name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="from_email" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
@@ -66,6 +67,8 @@
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="submit-button">Send Message</button>
+                        <p id="successMessage" style="color: green; display: none;">Message sent successfully!</p>
+                        <p id="errorMessage" style="color: red; display: none;">Error sending message. Try again.</p>
                     </form>
                 </div>
                 <div class="contact-info">
@@ -98,53 +101,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <div class="contact-info">
-                        <p><img src="https://api.iconify.design/lucide:map-pin.svg" alt="Location"> 123 Luxury Avenue, City</p>
-                        <p><img src="https://api.iconify.design/lucide:phone.svg" alt="Phone"> +1 234 567 8900</p>
-                        <p><img src="https://api.iconify.design/lucide:mail.svg" alt="Email"> info@laposh.com</p>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#rooms">Rooms</a></li>
-                        <li><a href="#suites">Suites</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul>
-                        <li>24/7 Room Service</li>
-                        <li>Restaurant & Bar</li>
-                        <li>Free Wi-Fi</li>
-                        <li>24/7 Power Supply</li>
-                        <li>Concierge Services</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <div class="social-links">
-                        <a href="#"><img src="https://api.iconify.design/lucide:facebook.svg" alt="Facebook"></a>
-                        <a href="#"><img src="https://api.iconify.design/lucide:twitter.svg" alt="Twitter"></a>
-                        <a href="#"><img src="https://api.iconify.design/lucide:instagram.svg" alt="Instagram"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 La Posh Hotel and Suites. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
 
     <script src="script.js"></script>
 </body>
