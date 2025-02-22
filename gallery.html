@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - La Posh Hotel and Suites</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/logo-snip.jpg" alt="Hotel Logo">
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="rooms.html">Rooms</a>
+                <a href="suites.html">Suites</a>
+                <a href="gallery.html" class="active">Gallery</a>
+                <a href="contact.html">Contact</a>
+                <a href="booking.html" class="book-now">Book Now</a>
+                <a href="admin.html" class="login">Login</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Gallery Hero -->
+    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')">
+        <div class="hero-content">
+            <h1>Our Gallery</h1>
+            <p>Experience La Posh Through Our Lens</p>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+     <!-- Image Modal -->
+<div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+</div>
+
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Luxury Room">
+                    <div class="gallery-item-overlay">
+                        <h3>Luxury Rooms</h3>
+                        <p>Experience comfort and elegance</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Presidential Suite">
+                    <div class="gallery-item-overlay">
+                        <h3>Presidential Suite</h3>
+                        <p>The epitome of luxury</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Restaurant">
+                    <div class="gallery-item-overlay">
+                        <h3>Fine Dining</h3>
+                        <p>Exquisite culinary experiences</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1561501900-3701fa6a0864?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Swimming Pool">
+                    <div class="gallery-item-overlay">
+                        <h3>Swimming Pool</h3>
+                        <p>Relax and unwind</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Spa">
+                    <div class="gallery-item-overlay">
+                        <h3>Luxury Spa</h3>
+                        <p>Rejuvenate your senses</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Gym">
+                    <div class="gallery-item-overlay">
+                        <h3>Fitness Center</h3>
+                        <p>Stay fit while traveling</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Conference Room">
+                    <div class="gallery-item-overlay">
+                        <h3>Conference Facilities</h3>
+                        <p>Perfect for business events</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Hotel Exterior">
+                    <div class="gallery-item-overlay">
+                        <h3>Hotel Exterior</h3>
+                        <p>A landmark of luxury</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><img src="https://api.iconify.design/lucide:map-pin.svg" alt="Location"> 123 Luxury Avenue, City</p>
+                        <p><img src="https://api.iconify.design/lucide:phone.svg" alt="Phone"> +1 234 567 8900</p>
+                        <p><img src="https://api.iconify.design/lucide:mail.svg" alt="Email"> info@laposh.com</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="rooms.html">Rooms</a></li>
+                        <li><a href="suites.html">Suites</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li>24/7 Room Service</li>
+                        <li>Restaurant & Bar</li>
+                        <li>Free Wi-Fi</li>
+                        <li>24/7 Power Supply</li>
+                        <li>Concierge Services</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><img src="https://api.iconify.design/lucide:facebook.svg" alt="Facebook"></a>
+                        <a href="#"><img src="https://api.iconify.design/lucide:twitter.svg" alt="Twitter"></a>
+                        <a href="#"><img src="https://api.iconify.design/lucide:instagram.svg" alt="Instagram"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 La Posh Hotel and Suites. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+make the following changes to the website:
+-add footer on every page
+- Make the login page and form have same design as contact page; add feature in password field to make password visible or not
+-style booking page to have the booking form on left and picture on right; onclick of the search button, use the check-in and check-out info to display all rooms and suites available for that day
+-add a gallery page with appropriate styling
+- Make all buttons in the website gold and on hover they turn transparent with gold border 
+-when you click logo it should take you to home page
+-

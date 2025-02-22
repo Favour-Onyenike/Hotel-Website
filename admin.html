@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - La Posh Hotel and Suites</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+          
+                <a href="index.html" class="logo">
+                    <img src="img/logo-snip.jpg" alt="Hotel Logo">
+                </a>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="rooms.html">Rooms</a>
+                <a href="suites.html">Suites</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+                <a href="booking.html" class="book-now">Book Now</a>
+                <a href="admin.html" class="login active">Login</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <section class="page-hero contact-hero">
+        <div class="hero-content">
+            <h1>Admin Login</h1>
+            <p>We're Here to Help</p>
+        </div>
+    </section>
+
+
+    <!-- Login Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <h2>Admin Login</h2>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                        <div class="form-group password-field">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
+                            <button type="button" class="password-toggle" onclick="togglePassword()">
+                                <img src="https://api.iconify.design/lucide:eye.svg" alt="Show Password" id="passwordToggleIcon">
+                            </button>
+                        </div>
+                        <button type="submit" class="login-button">Login</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="info-card">
+                        <img src="https://api.iconify.design/lucide:shield.svg" alt="Security">
+                        <h3>Secure Login</h3>
+                        <p>Your connection is secure and encrypted</p>
+                    </div>
+                    <div class="info-card">
+                        <img src="https://api.iconify.design/lucide:help-circle.svg" alt="Help">
+                        <h3>Need Help?</h3>
+                        <p>Contact IT Support:<br>support@laposh.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><img src="https://api.iconify.design/lucide:map-pin.svg" alt="Location"> 123 Luxury Avenue, City</p>
+                        <p><img src="https://api.iconify.design/lucide:phone.svg" alt="Phone"> +1 234 567 8900</p>
+                        <p><img src="https://api.iconify.design/lucide:mail.svg" alt="Email"> info@laposh.com</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="rooms.html">Rooms</a></li>
+                        <li><a href="suites.html">Suites</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li>24/7 Room Service</li>
+                        <li>Restaurant & Bar</li>
+                        <li>Free Wi-Fi</li>
+                        <li>24/7 Power Supply</li>
+                        <li>Concierge Services</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><img src="https://api.iconify.design/lucide:facebook.svg" alt="Facebook"></a>
+                        <a href="#"><img src="https://api.iconify.design/lucide:twitter.svg" alt="Twitter"></a>
+                        <a href="#"><img src="https://api.iconify.design/lucide:instagram.svg" alt="Instagram"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 La Posh Hotel and Suites. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="admin.js"></script>
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const passwordToggleIcon = document.getElementById('passwordToggleIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordToggleIcon.src = 'https://api.iconify.design/lucide:eye-off.svg';
+            } else {
+                passwordInput.type = 'password';
+                passwordToggleIcon.src = 'https://api.iconify.design/lucide:eye.svg';
+            }
+        }
+
+        // Add event listener to the form
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Call the handleLogin function from admin.js
+            handleLogin(username, password);
+        });
+    </script>
+</body>
+</html>

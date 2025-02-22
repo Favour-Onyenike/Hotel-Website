@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - La Posh Hotel and Suites</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #f4f4f9;
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+    width: 250px;
+    background: #2c3e50;
+    color: #fff;
+    height: 100vh;
+    padding: 20px;
+    position: fixed;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.sidebar-nav a:hover, .sidebar-nav a.active {
+    background: #FFA500;
+}
+
+/* Main Content */
+.dashboard-main {
+    margin-left: 270px;
+    padding: 20px;
+    width: calc(100% - 270px);
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2em;
+    font-weight: bold;
+    color: #FFA500;
+}
+
+/* Bookings Table */
+.bookings-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.bookings-table th, .bookings-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.bookings-table th {
+    background: #FFA500;
+    color: white;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.status.confirmed {
+    background: rgb(66, 235, 66);
+    color: white;
+}
+
+.status.pending {
+    background: #f10f0f;
+    color: white;
+}
+
+/* Footer */
+.footer {
+    margin-top: 40px;
+    text-align: center;
+    padding: 20px;
+    background: #2c3e50;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .dashboard-sidebar {
+        width: 200px;
+    }
+    .dashboard-main {
+        margin-left: 210px;
+    }
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+</style>
+<body class="dashboard-body">
+    <!-- Dashboard Sidebar -->
+    <aside class="dashboard-sidebar">
+        <div class="sidebar-header">
+            <img src="https://api.iconify.design/lucide:hotel.svg" alt="Hotel Logo">
+            <span>La Posh Admin</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="active" onclick="showSection('overview')">
+                <img src="https://api.iconify.design/lucide:layout-dashboard.svg" alt="Dashboard">
+                Overview
+            </a>
+            <a href="#" onclick="showSection('bookings')">
+                <img src="https://api.iconify.design/lucide:calendar.svg" alt="Bookings">
+                Bookings
+            </a>
+            <a href="#" onclick="showSection('rooms')">
+                <img src="https://api.iconify.design/lucide:door.svg" alt="Rooms">
+                Rooms
+            </a>
+            <a href="#" onclick="showSection('pricing')">
+                <img src="https://api.iconify.design/lucide:dollar-sign.svg" alt="Pricing">
+                Pricing
+            </a>
+            <a href="index.html" class="logout">
+                <img src="https://api.iconify.design/lucide:log-out.svg" alt="Logout">
+                Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Dashboard Main Content -->
+    <main class="dashboard-main">
+        <header class="dashboard-header">
+            <h1>Dashboard</h1>
+            <div class="user-info">
+                <span id="userName">Admin User</span>
+                <img src="https://api.iconify.design/lucide:user.svg" alt="User">
+            </div>
+        </header>
+
+        <!-- Overview Section -->
+        <section id="overview" class="dashboard-section active">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Bookings</h3>
+                    <p class="stat-number">156</p>
+                    <span class="stat-period">This Month</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Available Rooms</h3>
+                    <p class="stat-number">24</p>
+                    <span class="stat-period">Out of 50</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Revenue</h3>
+                    <p class="stat-number">$45,280</p>
+                    <span class="stat-period">This Month</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Occupancy Rate</h3>
+                    <p class="stat-number">78%</p>
+                    <span class="stat-period">Current</span>
+                </div>
+            </div>
+
+            <div class="recent-bookings">
+                <h2>Recent Bookings</h2>
+                <table class="bookings-table">
+                    <thead>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>Guest Name</th>
+                            <th>Room Type</th>
+                            <th>Check-in</th>
+                            <th>Check-out</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Sample data - would be populated dynamically -->
+                        <tr>
+                            <td>#12345</td>
+                            <td>John Doe</td>
+                            <td>Emerald Room</td>
+                            <td>2024-03-15</td>
+                            <td>2024-03-18</td>
+                            <td><span class="status confirmed">Confirmed</span></td>
+                        </tr>
+                        <tr>
+                            <td>#12346</td>
+                            <td>Jane Smith</td>
+                            <td>Diamond Suite</td>
+                            <td>2024-03-16</td>
+                            <td>2024-03-20</td>
+                            <td><span class="status pending">Pending</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Other sections would be added here -->
+        <section id="bookings" class="dashboard-section">
+            <!-- Bookings management content -->
+        </section>
+
+        <section id="rooms" class="dashboard-section">
+            <!-- Rooms management content -->
+        </section>
+
+        <section id="pricing" class="dashboard-section">
+            <!-- Pricing management content -->
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><img src="https://api.iconify.design/lucide:map-pin.svg" alt="Location"> 123 Luxury Avenue, City</p>
+                        <p><img src="https://api.iconify.design/lucide:phone.svg" alt="Phone"> +1 234 567 8900</p>
+                        <p><img src="https://api.iconify.design/lucide:mail.svg" alt="Email"> info@laposh.com</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#rooms">Rooms</a></li>
+                        <li><a href="#suites">Suites</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li>24/7 Room Service</li>
+                        <li>Restaurant & Bar</li>
+                        <li>Free Wi-Fi</li>
+                        <li>24/7 Power Supply</li>
+                        <li>Concierge Services</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><img src="https://api.iconify.design/lucide:facebook.svg" alt="Facebook"></a>
+                        <a href="#"><img src="https://api.iconify.design/lucide:twitter.svg" alt="Twitter"></a>
+                        <a href="#"><img src="https://api.iconify.design/lucide:instagram.svg" alt="Instagram"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 La Posh Hotel and Suites. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
