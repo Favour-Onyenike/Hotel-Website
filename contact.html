@@ -9,6 +9,9 @@
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 <body>
+    <div id="loader">
+        <div class="loader-spinner"></div>
+    </div>
     <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-container">
@@ -103,5 +106,12 @@
     </section>
 
     <script src="script.js"></script>
+    <script>
+        // Hide loader after a delay (e.g., 3 seconds)
+        setTimeout(function () {
+            document.getElementById('loader').style.display = 'none';
+            document.body.classList.add('loaded'); // Optional: Add a class to body
+        }, 3000); // 3000 milliseconds = 3 seconds
+    </script>
 </body>
 </html>

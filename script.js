@@ -14,6 +14,15 @@ if (hamburger && navLinks) {
         }
     });
 }
+//loader
+
+
+    // Hide loader when page is fully loaded
+    window.addEventListener('load', function () {
+        document.getElementById('loader').style.display = 'none';
+        document.body.classList.add('loaded'); // Optional: Add a class to body
+    });
+
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

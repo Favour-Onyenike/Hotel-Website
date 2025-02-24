@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
+
+    <div id="loader">
+        <div class="loader-spinner"></div>
+    </div>
     <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-container">
@@ -453,42 +457,43 @@ const counters = document.querySelectorAll('.counter');
 let hasStarted = false;
 
 function startCounting() {
-if (hasStarted) return;
+    if (hasStarted) return;
 
-counters.forEach(counter => {
-    const target = +counter.getAttribute('data-target');
-    const duration = 2000; // 2 seconds
-    const increment = target / (duration / 16); // 60 FPS
-    let current = 0;
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const duration = 2000; // 2 seconds
+        const increment = target / (duration / 16); // 60 FPS
+        let current = 0;
 
-    const updateCounter = () => {
-        current += increment;
-        if (current < target) {
-            counter.innerText = Math.round(current);
-            requestAnimationFrame(updateCounter);
-        } else {
-            counter.innerText = target;
-        }
-    };
+        const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+                counter.innerText = Math.round(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.innerText = target;
+            }
+        };
 
-    updateCounter();
-});
+        updateCounter();
+    });
 
-hasStarted = true;
+    hasStarted = true;
 }
 
 // Start counting when the section comes into view
 const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-    if (entry.isIntersecting) {
-        startCounting();
-    }
-});
-}, { threshold: 0.5 });
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            console.log('Observer triggered'); // Debugging log
+            startCounting();
+        }
+    });
+}, { threshold: 0.1 }); // Reduced threshold
 
 // Observe the section containing the counters
 document.querySelectorAll('.counter').forEach(counter => {
-observer.observe(counter.parentElement.parentElement.parentElement);
+    observer.observe(counter.parentElement.parentElement.parentElement);
 });
 </script>
     
@@ -582,5 +587,12 @@ observer.observe(counter.parentElement.parentElement.parentElement);
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Hide loader after a delay (e.g., 3 seconds)
+        setTimeout(function () {
+            document.getElementById('loader').style.display = 'none';
+            document.body.classList.add('loaded'); // Optional: Add a class to body
+        }, 3000); // 3000 milliseconds = 3 seconds
+    </script>
 </body>
 </html>
